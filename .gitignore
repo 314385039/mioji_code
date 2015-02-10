@@ -1,0 +1,7 @@
+#g++:
+*.out
+
+#Python:
+*.py[cod]
+*.so
+
