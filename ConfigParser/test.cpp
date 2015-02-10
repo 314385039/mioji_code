@@ -20,7 +20,7 @@ int main(int argc, const char *argv[])
     vector<string> vec;
     cout << result["basic"]["users"] << endl;
     string a = " " ;
-    ConfigParser::split(result["basic"]["usrs"], " " , vec);
+    ConfigParser::split(result["basic"]["usrs"], a , vec);
     cout << vec[0] << endl;
     cout << vec[1] << endl;
     cout << vec[2] << endl;

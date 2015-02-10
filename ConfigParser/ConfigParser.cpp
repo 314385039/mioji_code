@@ -36,7 +36,7 @@ void ConfigParser::trim(string& s)
 }
 
 //以delim分割字符串str，分割好的结果保存到vec中去
-void ConfigParser::split(const string& str, const char* delim, vector<string>& vec)
+void ConfigParser::split(const string& str, const string& delim, vector<string>& vec)
 {
     int beg = 0, end;
     do
@@ -59,9 +59,9 @@ void ConfigParser::split(const string& str, const char* delim, vector<string>& v
 }
 
 
-CONFIG ConfigParser::read(const string& filepath)
+CONFIGRES ConfigParser::read(const string& filepath)
 {
-    CONFIG results;
+    CONFIGRES results;
     ifstream is; 
     if (!openfileRead(is, filepath)) 
     {
@@ -125,12 +125,12 @@ ostream& operator << (ostream& out, const map<string, string>& smap)
     return out;
 }
 
-ostream& operator << (ostream& out, const CONFIG& config)
+ostream& operator << (ostream& out, const CONFIGRES& config)
 {
     out << "{";
     if (config.size() >= 1)
     {
-        for (CONFIG::const_iterator cit = config.begin(); cit != config.end(); ++ cit)
+        for (CONFIGRES::const_iterator cit = config.begin(); cit != config.end(); ++ cit)
         {
             out << cit->first << ":" << (cit->second) << ",";
         }
