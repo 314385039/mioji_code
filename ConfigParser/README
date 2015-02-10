@@ -1,14 +1,18 @@
+//这里编写的读取配置文件类，是模仿python的相应模块实现
+[使用方法]
 ConfigParser类的使用方法：
 1.声明对象
     ConfigParser config;
-2.读取配置文件
-    CONFIG results = config.read("test.ini");
-    注：这里的CONFIG是头文件重定义的类型，是dict，dict类型，可以直接使用下标访问
+2.读取配置文件，并将结果保存到CONFIGRES中
+    CONFIGRES results = config.read("test.ini");
+    注：这里的CONFIGRES是头文件重定义的类型，是dict，dict类型，可以直接使用下标访问
 3.重载了输出操作符
     可以对results直接使用cout << 输出操作来调用或者查看结果
-4.定义了供外界直接调用的static函数split
+    重载类型为：map<string, string> 和map<string, map<string, string> >
+4.定义了供外界直接调用的static函数split和trim
     作用：用来分割字符串，第一个参数为待分割字符串，第二个参数为分隔符，第三个参数为保存结果的vector
-    注：如果两个分割付中间没有任何字符，这也会被当做一个空的字符串push进入vector
+        trim则是用来去掉字符串首尾空白符
+    注：如果两个分割符中间没有任何字符，这也会被当做一个空的字符串push进入vector
     
 [错误处理]
 配置文件格式必须为标准格式：
@@ -18,6 +22,10 @@ yyy=zzz
 带=的行，会被认定为=前面是key，后面是value，如果key为空串，定位非法，跳过
 []和=都不带的行跳过
 key和value 的首尾空格都会被去掉
+
+[有待改进]
+1.map可以直接下标操作，如果不存在则会添加成员，这样很不好
+2.CONFIGRES应该为const类型，应该读出之后就不允许修改
 
 
 
