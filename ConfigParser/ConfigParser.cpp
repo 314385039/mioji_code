@@ -25,6 +25,7 @@ ofstream& ConfigParser::openfileWrite(ofstream& os, const string& filename)
     return os;
 }
 
+//去掉字符串首尾空格
 void ConfigParser::trim(string& s)
 {
     if (s.empty())
