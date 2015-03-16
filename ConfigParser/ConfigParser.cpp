@@ -21,7 +21,7 @@ ofstream& ConfigParser::openfileWrite(ofstream& os, const string& filename)
 {
     os.close();
     os.clear();
-    os.open(filename.c_str());
+    os.open(filename.c_str(), ofstream::out);
     return os;
 }
 
