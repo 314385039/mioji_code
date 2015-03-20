@@ -9,11 +9,11 @@
 
 using namespace std;
 
-typedef map< string, map<string, string> > CONFIGRES;
+typedef map< string, map<string, string> > CONFIG;
 
 class ConfigParser
 {
-    //friend ostream& operator << (ostream& out, const CONFIGRES& config);
+    //friend ostream& operator << (ostream& out, const CONFIG& config);
     public:
         ConfigParser();
         ~ConfigParser();
@@ -24,12 +24,12 @@ class ConfigParser
         //切割字符串
         static void split(const string& str, const string& delim, vector<string>& vec);
 
-        CONFIGRES read(const string& filepath);
+        CONFIG read(const string& filepath);
     private:
 };
 
 //重载输出操作符
 ostream& operator << (ostream& out, const map<string, string>& smap);
-ostream& operator << (ostream& out, const CONFIGRES& config);
+ostream& operator << (ostream& out, const CONFIG& config);
 
 #endif  /*_CONFIGPARSER_HPP_*/

@@ -60,9 +60,9 @@ void ConfigParser::split(const string& str, const string& delim, vector<string>&
 }
 
 
-CONFIGRES ConfigParser::read(const string& filepath)
+CONFIG ConfigParser::read(const string& filepath)
 {
-    CONFIGRES results;
+    CONFIG results;
     ifstream is; 
     if (!openfileRead(is, filepath)) 
     {
@@ -126,12 +126,12 @@ ostream& operator << (ostream& out, const map<string, string>& smap)
     return out;
 }
 
-ostream& operator << (ostream& out, const CONFIGRES& config)
+ostream& operator << (ostream& out, const CONFIG& config)
 {
     out << "{";
     if (config.size() >= 1)
     {
-        for (CONFIGRES::const_iterator cit = config.begin(); cit != config.end(); ++ cit)
+        for (CONFIG::const_iterator cit = config.begin(); cit != config.end(); ++ cit)
         {
             out << cit->first << ":" << (cit->second) << ",";
         }
