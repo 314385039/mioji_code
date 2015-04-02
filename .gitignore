@@ -1,5 +1,6 @@
 #g++:
 *.out
+*.swp
 
 #Python:
 *.py[cod]
