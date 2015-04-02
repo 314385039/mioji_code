@@ -1,9 +1,0 @@
-python的打印日志工具：
-使用方法：
-from logger import logger
-
-logger.error('xxx')
-logger.info('xxx')
-
-
-注意：他们都输出到错误输出2
