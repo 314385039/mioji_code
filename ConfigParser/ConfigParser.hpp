@@ -24,7 +24,10 @@ class ConfigParser
         //切割字符串
         static void split(const string& str, const string& delim, vector<string>& vec);
 
+        //读取标准格式配置文件，返回值为map<string, map<string, string> >
         CONFIG read(const string& filepath);
+        //传入一个CONFIG格式的数据，写入文件filename中，如果写入成功返回true
+        bool write(const CONFIG& content, const string& filepath);
     private:
 };
 

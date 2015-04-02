@@ -5,7 +5,7 @@ ConfigParser类的使用方法：
     ConfigParser config;
 2.读取配置文件，并将结果保存到CONFIGRES中
     CONFIG results = config.read("test.ini");
-    注：这里的CONFIGRES是头文件重定义的类型，是dict，dict类型，可以直接使用下标访问
+    注：这里的CONFIG是头文件重定义的类型，是dict，dict类型，可以直接使用下标访问
 3.重载了输出操作符
     可以对results直接使用cout << 输出操作来调用或者查看结果
     重载类型为：map<string, string> 和map<string, map<string, string> >
@@ -25,7 +25,7 @@ key和value 的首尾空格都会被去掉
 
 [有待改进]
 1.map可以直接下标操作，如果不存在则会添加成员，这样很不好
-2.CONFIGRES应该为const类型，应该读出之后就不允许修改
+2.CONFIG应该为const类型，应该读出之后就不允许修改
 
 
 

@@ -59,6 +59,24 @@ void ConfigParser::split(const string& str, const string& delim, vector<string>&
     }while (1);
 }
 
+bool ConfigParser::write(const CONFIG& content, const string& filepath)
+{
+    ofstream os;
+    if (!openfileWrite(os, filepath))
+    {
+        cout << "open configFile " << filepath << " failed!" << endl;
+        return false;
+    }
+    for (CONFIG::const_iterator it = content.begin(); it != content.end(); ++it)
+    {
+        os << "[" << it->first << "]" << endl;
+        for (map<string, string>::const_iterator m_it = it->second.begin(); m_it != it->second.end(); ++m_it)
+        {
+            os << m_it->first << "=" << m_it->second << endl;
+        }
+    }
+    return true;
+}
 
 CONFIG ConfigParser::read(const string& filepath)
 {
