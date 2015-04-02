@@ -111,18 +111,17 @@ CONFIG ConfigParser::read(const string& filepath)
 
 ostream& operator << (ostream& out, const map<string, string>& smap)
 {
-    string str = "{";
+    out << "{";
     if (smap.size() >= 1)
     {
         for (map<string, string>::const_iterator mit = smap.begin(); mit != smap.end(); ++mit)
         {
-            str += mit->first + ":" + mit->second + ",";
+            out <<  mit->first + ":" + mit->second + ",";
         }
-        str.erase(str.find_last_of(","), 1);
+        out << "\b";
     }
-    str += "}";
+    out << "}";
 
-    out << str;
     return out;
 }
 

@@ -8,7 +8,7 @@ using namespace std;
 int main(int argc, const char *argv[])
 {
     ConfigParser config;
-    CONFIG result = config.read("test.ini");
+    CONFIG result = config.read("conf.ini");
     
     cout << result["ssasasa"]["ddd"] << "hello" << endl;
     cout << "result[sad] = " << result["sad"] << endl;
