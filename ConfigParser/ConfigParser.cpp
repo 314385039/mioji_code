@@ -59,6 +59,21 @@ void ConfigParser::split(const string& str, const string& delim, vector<string>&
     }while (1);
 }
 
+bool ConfigParser::write(const vector<string>& content, const string& filepath)
+{
+    ofstream os;
+    if (!openfileWrite(os, filepath))
+    {
+        cout << "open configFile " << filepath << " failed!" << endl;
+        return false;
+    }
+    for (vector<string>::const_iterator it = content.begin(); it != content.end(); ++it)
+    {
+        os << *it << endl;
+    }
+    return true;
+}
+
 bool ConfigParser::write(const CONFIG& content, const string& filepath)
 {
     ofstream os;
@@ -126,6 +141,24 @@ CONFIG ConfigParser::read(const string& filepath)
     return results;
 }
 
+//读取模式2，直接将配置文件的每一行保存到vector中保存然后返回
+vector<string> ConfigParser::read_mod2(const string& filepath)
+{
+    vector<string> lines;
+    ifstream is; 
+    if (!openfileRead(is, filepath)) 
+    {
+        cout << "open configFile " << filepath << " failed!" << endl;
+        return lines;
+    }
+    string line = "";
+    while (getline(is, line))
+    {
+        trim(line);
+        lines.push_back(line);
+    }
+    return lines;
+}
 
 ostream& operator << (ostream& out, const map<string, string>& smap)
 {
@@ -159,7 +192,21 @@ ostream& operator << (ostream& out, const CONFIG& config)
     return out;
 }
 
+ostream& operator << (ostream& out, const vector<string>& svec)
+{
+    out << "[";
+    if (svec.size() > 1)
+    {
+        for (vector<string>::const_iterator vit = svec.begin(); vit != svec.end(); ++vit)
+        {
+            out << *vit << ",";
+        }
+        out << "\b";
+    }
+    out << "]";
 
+    return out;
+}
 
 
 

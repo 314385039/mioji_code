@@ -29,5 +29,13 @@ int main(int argc, const char *argv[])
     //测试write
     config.write(result, "output.ini");
 
+    //测试read_mod2
+    cout << "--------------------------" << endl;
+    vector<string> vstr = config.read_mod2("conf.ini");
+    cout << vstr;
+
+    //测试write
+    config.write(vstr, "output.ini");
+
     return 0;
 }

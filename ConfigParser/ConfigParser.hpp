@@ -26,13 +26,18 @@ class ConfigParser
 
         //读取标准格式配置文件，返回值为map<string, map<string, string> >
         CONFIG read(const string& filepath);
+        //读取标准格式配置文件，返回值为vector<string>
+        vector<string> read_mod2(const string& filepath);
         //传入一个CONFIG格式的数据，写入文件filename中，如果写入成功返回true
         bool write(const CONFIG& content, const string& filepath);
+        //传入一个vector<string>格式的数据，写入文件filename中，如果写入成功返回true
+        bool write(const vector<string>& content, const string& filepath);
     private:
 };
 
 //重载输出操作符
 ostream& operator << (ostream& out, const map<string, string>& smap);
 ostream& operator << (ostream& out, const CONFIG& config);
+ostream& operator << (ostream& out, const vector<string>& config);
 
 #endif  /*_CONFIGPARSER_HPP_*/
