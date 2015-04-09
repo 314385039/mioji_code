@@ -89,6 +89,7 @@ bool ConfigParser::write(const CONFIG& content, const string& filepath)
         {
             os << m_it->first << "=" << m_it->second << endl;
         }
+        os << endl;
     }
     return true;
 }

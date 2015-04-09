@@ -3,18 +3,24 @@
 ConfigParser类的使用方法：
 1.声明对象
     ConfigParser config;
-2.读取配置文件，并将结果保存到CONFIGRES中
+2.读取配置文件，并将结果保存到CONFIG中
     CONFIG results = config.read("test.ini");
     注：这里的CONFIG是头文件重定义的类型，是dict，dict类型，可以直接使用下标访问
-3.重载了输出操作符
+    vector<string> res = config.read_mod2("test.ini");
+    注：这里读取模式2是简单的读取文件，将文件的每一行直接保存到vector中
+5.定义了写配置文件，返回bool值，输入参数为待写入的CONFIG类型和待写入的文件路径
+    config.write(results, "ouput.ini");
+    config.write(res, "output.ini");
+    注：这里上面是写入标准格式的配置文件，下面是直接将vector的每一个元素为一行写入文件
+
+[其他功能]
+1.重载了输出操作符
     可以对results直接使用cout << 输出操作来调用或者查看结果
-    重载类型为：map<string, string> 和map<string, map<string, string> >
-4.定义了供外界直接调用的static函数split和trim
+    重载类型为：map<string, string> 和map<string, map<string, string> >和vector<string>
+2.定义了供外界直接调用的static函数split和trim
     作用：用来分割字符串，第一个参数为待分割字符串，第二个参数为分隔符，第三个参数为保存结果的vector
         trim则是用来去掉字符串首尾空白符
     注：如果两个分割符中间没有任何字符，这也会被当做一个空的字符串push进入vector
-5.定义了写配置文件，返回bool值，输入参数为待写入的CONFIG类型和待写入的文件路径
-    config.write(results, "ouput.ini");
     
 [错误处理]
 配置文件格式必须为标准格式：
