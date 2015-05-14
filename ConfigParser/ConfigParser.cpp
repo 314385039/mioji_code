@@ -39,6 +39,7 @@ void ConfigParser::trim(string& s)
 //以delim分割字符串str，分割好的结果保存到vec中去
 void ConfigParser::split(const string& str, const string& delim, vector<string>& vec)
 {
+    vec.clear();    //清空vector
     int beg = 0, end;
     do
     {
