@@ -40,7 +40,7 @@ int main(int argc, const char *argv[])
     */
 
     vector<string> vec;
-    ConfigParser::split("PEK||20155555|", "|", vec);
+    ConfigParser::split("1|PEK|20155555|2", "|", vec);
     for (int i = 0; i != vec.size(); ++i)
     {
         cout << "wa" << vec[i] << endl;
