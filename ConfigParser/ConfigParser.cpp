@@ -55,7 +55,12 @@ void ConfigParser::split(const string& str, const string& delim, vector<string>&
         }
         vec.push_back(word);
         beg = end + 1;
-        if (beg == str.size() || beg == 0)
+        if (beg == str.size())
+        {
+            vec.push_back("");
+            break;
+        }
+        if (beg == 0)
             break;
     }while (1);
 }

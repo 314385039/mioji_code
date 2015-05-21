@@ -7,6 +7,7 @@ using namespace std;
 
 int main(int argc, const char *argv[])
 {
+    /*
     ConfigParser config;
     CONFIG result = config.read("conf.ini");
     
@@ -36,6 +37,14 @@ int main(int argc, const char *argv[])
 
     //测试write
     config.write(vstr, "output.ini");
+    */
 
+    vector<string> vec;
+    ConfigParser::split("PEK||20155555|", "|", vec);
+    for (int i = 0; i != vec.size(); ++i)
+    {
+        cout << "wa" << vec[i] << endl;
+    }
+    
     return 0;
 }
