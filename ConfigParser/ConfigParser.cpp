@@ -41,6 +41,7 @@ void ConfigParser::split(const string& str, const string& delim, vector<string>&
 {
     vec.clear();    //清空vector
     int beg = 0, end;
+    int delim_len = delim.size();
     do
     {
         string word = "";
@@ -48,20 +49,20 @@ void ConfigParser::split(const string& str, const string& delim, vector<string>&
         if (end == -1)
         {
             word = str.substr(beg); 
+            vec.push_back(word);
+            break;
         }
         else
         {
             word = str.substr(beg, end - beg);
+            vec.push_back(word);
         }
-        vec.push_back(word);
-        beg = end + 1;
+        beg = end + delim_len;
         if (beg == str.size())
         {
             vec.push_back("");
             break;
         }
-        if (beg == 0)
-            break;
     }while (1);
 }
 
