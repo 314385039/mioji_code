@@ -1,0 +1,18 @@
+[useJson]
+
+git clone https://github.com/open-source-parsers/jsoncpp.git
+
+cd jsoncpp
+
+scons platform=linux-gcc
+
+#将库文件拷贝到需要的路径，这里以家目录为例
+cp -r include libs ~/
+
+#在~目录编写main.cpp
+    #include "json/json.h"
+
+g++ main.cpp -I ~/include ~/libs/linux-gcc-4.4.7/libjson_linux-gcc-4.4.7_libmt.a
+
+./a.out
+
